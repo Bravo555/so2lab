@@ -26,3 +26,4 @@
 # (każda nazwa w nowej linii).
 #
 
+find linux-5.11.13 -path "*testing*" -prune , -name "*.h" -size 0 | xargs basename -a

@@ -26,3 +26,4 @@
 # Jako wynik zwrócić tylko i wyłącznie liczbę plików.
 #
 
+find linux-5.11.13 -iname "???.c" | wc -l

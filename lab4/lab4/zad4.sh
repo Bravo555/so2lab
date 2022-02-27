@@ -25,7 +25,7 @@
 # .sh na końcu nazwy). Jako wynik zwrócić ułamek w postaci X/Y i nic więcej.
 #
 
-EXECS=$(find linux-5.11.13 -type f -executable)
-# SHSCRIPTS=$(grep -c .sh)
-# echo $SHSCRIPTS
-echo $EXECS
+execs=$(find linux-5.11.13 -type f -executable)
+execsnum=$(echo "$execs" | wc -l)
+shscriptsnum=$(echo "$execs" | grep -c ".sh$")
+echo "$shscriptsnum/$execsnum"

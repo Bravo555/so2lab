@@ -26,3 +26,4 @@
 # rozdzielone jedną spacją (<rozmiar> <nazwa>\n).
 #
 
+find linux-5.11.13 -size +1M -size -10M \! -name "*[0-9]*" | xargs du -b | awk -F'\t' '{ sub(".*/", "", $2); print $1, $2 }'

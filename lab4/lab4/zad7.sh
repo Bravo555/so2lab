@@ -25,3 +25,4 @@
 # Wyświetlić same nazwy pasujących plików, każdą nazwę w osobnej linii.
 #
 
+find linux-5.11.13 -type f -name "[A-Z]*.py" \! -executable | xargs basename -a

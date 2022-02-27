@@ -28,3 +28,5 @@
 # wyświetlić po prostu ścieżki do takich plików.
 #
 
+find linux-5.11.13 -path "*mips*" -prune , -path "*bluetooth*" -size +30k \( -name "core.c" -o -name "irq.c" \)
+find linux-5.11.13 -path "*mips*" -prune , -size -1024c \( -name "core.c" -o -name "irq.c" \)
