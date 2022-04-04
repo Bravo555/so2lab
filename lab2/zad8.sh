@@ -25,4 +25,10 @@
 # `aaa`, `bbb` i wszelkie potrzebne ich podkatalogi.
 #
 
-
+[ -d ddd/zapasy ] && rm -rf ddd/zapasy
+mkdir ddd/zapasy
+for file in $(find aaa bbb -type f \! -writable); do
+    targetdir=ddd/zapasy/$(dirname "$file")
+    mkdir -p "$targetdir"
+    cp "$file" "$targetdir"
+done

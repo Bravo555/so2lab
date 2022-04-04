@@ -24,4 +24,4 @@
 # Kolejność łączenia plików nie ma znaczenia.
 #
 
-echo $(cat aaa/*) > ddd/całość
+cat aaa/* > ddd/całość

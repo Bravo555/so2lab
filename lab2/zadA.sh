@@ -32,4 +32,7 @@
 # źródłowych `nazwa-...`; każda nazwa to osobna linia w tych plikach).
 #
 
-
+cat ddd/nazwy-* | sort | uniq -c |
+while read -r count filename; do
+    echo $(( count-1 )) > "ddd/zasoby/$filename"
+done

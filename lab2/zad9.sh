@@ -27,4 +27,16 @@
 # że na pewno możemy je przeczytać).
 #
 
+# https://stackoverflow.com/questions/4128235/what-is-the-exact-meaning-of-ifs-n
+#
+# IFS='\n'
+# echo -n "$IFS" | xxd
+# 
+# IFS=$'\n'
+# echo -n "$IFS" | xxd
+#
+# https://unix.stackexchange.com/a/9499
 
+target='ddd/tajne hasła'
+printf '' > "$target"
+find ccc -type f -readable -exec echo "{}:" >> "$target" \; -exec cat {} >> "$target" \;
