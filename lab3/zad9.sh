@@ -32,15 +32,11 @@ basedir=$(realpath .)
 
 for file in dane/{*,*/*}; do
     if [ ! -e "$file" ]; then
-        # echo -n "$file->"
-        # readlink "$file"
-
         pushd "$(dirname "$file")" > /dev/null || exit
 
             for candidate in {*/*,../**}; do
                 [ "$(realpath --relative-to="$basedir" "$(dirname -- "$candidate")")" == "$(dirname "$file")" ] && continue
                 if [ "$(basename "$candidate")" == "$(basename "$file")" ]; then
-                    # echo "$(realpath --relative-to="$basedir" "$(dirname "$candidate")") == $(dirname "$file")"
                     echo "$(basename "$file"): $candidate"
                     break
                 fi
