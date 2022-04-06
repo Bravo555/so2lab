@@ -23,4 +23,11 @@
 # kanonicznymi. Element wskazywany przez dowiązanie nie musi istnieć.
 #
 
-find dane/pierwiastki -type l -exec readlink {} \; | grep "^/" | xargs -L 1 realpath -m
+set -o errexit
+set -o nounset
+
+for f in dane/pierwiastki/*; do
+    if [ -L "$f" ]; then
+        readlink "$f"
+    fi
+done | grep "^/" | xargs realpath -m

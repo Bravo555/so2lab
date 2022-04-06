@@ -24,6 +24,13 @@
 
 # pierwszy pomysl: wziac inode twardziela i znalezc pliki z takim samym inode
 # numerem. widocznie na tyle common case ze w find jest flaga -samefile
-# stat dane/twardziel --printf="%i"
+#   find dane/icao -samefile dane/twardziel -exec basename {} \;
+#
+# Bez finda bedzie troche bardziej verbose:
+#   inode=$(stat dane/twardziel --printf="%i")
+#   ...
+#
+# Na szczescie test w bashu ma opcje -ef ktora sprawdza czy inody operandow sa
+# takie same.
 
-find dane/icao -samefile dane/twardziel -exec basename {} \;
+for f in dane/icao/*; do [ dane/twardziel -ef "$f" ] && basename "$f" ; done

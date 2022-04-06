@@ -23,4 +23,4 @@
 # Nie wyświetlać nic ponadto!
 #
 
-find dane/pierwiastki -type l -exec test ! -e "{}" \; -print0 | xargs -0 -n 1 basename
+for f in dane/pierwiastki/*; do [ -L "$f" ] && [ ! -e "$f" ] && echo "$f"; done | xargs -n 1 basename

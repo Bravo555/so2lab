@@ -22,4 +22,4 @@
 # Wyświetlić ścieżki kanoniczne do wskazywanych miejsc, każdą w osobnej linii.
 #
 
-find dane/pierwiastki -type l -exec test -e {} \; -print0 | xargs -0 -n1 readlink -f
+for f in dane/pierwiastki/*; do [ -L "$f" ] && [ -e "$f" ] && printf "%s\0" "$f"; done | xargs -0 -L 1 readlink -f

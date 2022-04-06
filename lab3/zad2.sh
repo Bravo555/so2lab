@@ -22,4 +22,6 @@
 # tylko i wyłącznie samą liczbę.
 #
 
-find dane/pierwiastki -type l | wc -l
+for f in dane/pierwiastki/*; do
+    if [ -L "$f" ]; then echo "$f"; fi
+done | wc -l
