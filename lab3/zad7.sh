@@ -22,4 +22,4 @@
 # Jako wynik wyświetlić pasujące wpisy z pliku (ścieżki do dowiązań).
 #
 
-cat dane/links.txt | while read -r ; do [ -x "$REPLY" ] && [ -L "$REPLY" ] && echo "$REPLY"; done
+while read -r; do [ -x "$REPLY" ] && [ -L "$REPLY" ] && echo "$REPLY"; done < dane/links.txt

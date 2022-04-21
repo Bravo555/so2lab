@@ -23,4 +23,4 @@
 # Nie wyświetlać nic ponadto!
 #
 
-for f in dane/pierwiastki/*; do [ -L "$f" ] && [ ! -e "$f" ] && echo "$f"; done | xargs -n 1 basename
+for f in dane/pierwiastki/*; do [ -L "$f" ] && [ ! -e "$f" ] && basename "$f"; done
