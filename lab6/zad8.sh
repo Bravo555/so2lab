@@ -27,52 +27,19 @@
 # tekst po przekształceniu.
 #
 
-awk '
-    {
-        currcolumn = 0;
-        for(i=1; i <= NF; i++) {
-            currlen = length($i);
-
-            if(currcolumn + currlen > 80) {
-                printf "\n" $i " ";
-                currcolumn = currlen + 1;
-            }
-            else {
-                printf $i " ";
-                currcolumn += currlen + 1;
-            }
+awk '{
+    for(i = 1; i < NF; i++) {
+        sum += length($i);
+        if(sum >= 79) {
+            print "";
+            sum = length($i);
         }
+        else {
+            if (i != 1) { printf " " };
+            sum += 1
+        }
+        printf $i
     }
-
+}
+    END { print " " $NF }
 ' dodatkowe/lipsum.txt
-
-    # {
-    #     rest = $0;
-    #     lastword = 0;
-    #     currlinelen = length;
-
-    #     while(rest != "") {
-    #         if(currlinelen > 80) {
-    #             lastword += 1;
-    #             currlen = 0;
-    #             for(i=0; i <= NF; i++) {
-    #                 currlen = index(rest, $i)
-    #                 if(currlen > 80) {
-    #                     break;
-    #                 }
-    #                 lastword = i;
-    #             }
-    #         }
-
-    #         for(i=0; i <= lastword; i++) printf $i " ";
-    #         print "";
-
-    #         breakpoint = index(rest, $lastword) - 1;
-    #         currlinelen = currlinelen - breakpoint;
-
-    #         substr(rest, breakpoint)
-
-    #         for(i=lastword; i <= NF; i++) printf $i " ";
-    #         print "";
-    #     }
-    # }
