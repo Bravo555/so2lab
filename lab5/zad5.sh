@@ -23,4 +23,4 @@
 # (* – wyszukać wszystkie linie, rozpoczynające się od słowa 'syslog')
 #
 
-grep syslog* dodatkowe/etc-services | sed 's/.* //;s/\/.*//' | uniq
+grep "syslog*" dodatkowe/etc-services | sed 's/.* //;s/\/.*//' | uniq

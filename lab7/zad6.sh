@@ -26,3 +26,4 @@
 # Jako wynik zwrócić same unikalne ścieżki, każdą w nowej linii.
 #
 
+grep -Eo '\\fbox{\\includegraphics.*{(.*)}' dodatkowe/slajdy.tex | sed -nr 's/\\fbox\{.*\{(.*)\}\}/\1/p'

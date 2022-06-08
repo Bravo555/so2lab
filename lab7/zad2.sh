@@ -24,4 +24,4 @@
 # Każdy znaleziony unikalny odnośnik wypisać w nowej linii.
 #
 
-grep -Eo '\w*:\/\/.*\b\)?\/?' dodatkowe/slajdy.tex
+grep -Eo '\w+:\/\/.*\b\)?\/?' dodatkowe/slajdy.tex

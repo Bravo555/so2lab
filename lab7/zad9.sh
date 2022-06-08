@@ -21,3 +21,7 @@
 # literami w tekście.
 #
 
+awk '/^#/ {
+    newline = gensub(/ ([a-z]) /, " \\1\\&nbsp;", "g", $0)
+    print newline
+}' zad9.sh

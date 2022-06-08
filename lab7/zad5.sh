@@ -24,3 +24,4 @@
 # Zwrócić same unikalne nazwy, bez nawiasów, każdą nazwę w nowej linii.
 #
 
+grep -Eo "def\s+(\w*)" dodatkowe/service.py | awk '{ print $2 }' | sort -u

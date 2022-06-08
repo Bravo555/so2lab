@@ -30,3 +30,4 @@
 # kolejnego zbioru kluczy i wartości.
 #
 
+sed -r 's#\{(.*)}#\1#;s#"(\w+)":\s+\{([^}]*)\}#<\1>\2</\1>#;s#"(\w+)":\s+""#<\1 />#g;s#"(\w+)":\s+"([^"]*)"#<\1>\2</\1>#g;s#,\s*##g' dodatkowe/simple.json

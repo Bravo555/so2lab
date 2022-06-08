@@ -22,4 +22,4 @@
 # Źródła znajdują się w katalogu `coreutils-8.32`.
 #
 
-find coreutils-8.32 -type f | xargs basename -a | sort | uniq -c | sort -r | head -1 | awk '{ print $2; }'
+find coreutils-8.32 -type f -printf '%f\n' | sort | uniq -c | sort -r | head -1 | awk '{ print $2; }'

@@ -28,7 +28,7 @@
 #
 
 awk '{
-    for(i = 1; i < NF; i++) {
+    for(i = 1; i <= NF; i++) {
         sum += length($i);
         if(sum >= 79) {
             print "";
@@ -41,5 +41,4 @@ awk '{
         printf $i
     }
 }
-    END { print " " $NF }
 ' dodatkowe/lipsum.txt

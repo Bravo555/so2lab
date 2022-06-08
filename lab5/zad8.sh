@@ -23,4 +23,5 @@
 # Źródła znajdują się w katalogu `coreutils-8.32`.
 #
 
-find coreutils-8.32 -type f | xargs grep -c '^#include <stdio.h>$' | grep -v ':0' | wc -l
+# grep -r
+find coreutils-8.32 -type f -print0 | xargs -0 grep -c '^#include <stdio.h>$' | grep -v ':0' -c

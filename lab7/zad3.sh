@@ -23,4 +23,4 @@
 #
 
 sed -E \
- 's/<\/{0,1}\w+( \w+=".*")*>//g;/^\s*$/d' dodatkowe/cpplint.txt
+ 's/<[^<>]*>//g;/^\s*$/d' dodatkowe/cpplint.txt
